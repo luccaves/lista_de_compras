@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -9,6 +10,8 @@ public class Main {
     //Inicialização de VARIÁVEIS
     static boolean systemRun = true;
     static int optionMenu;
+    static String item;
+
 
     //Métodos de visualização de MENU
     static void showPrincipalMenu() {
@@ -23,6 +26,11 @@ public class Main {
 //        System.out.println("4 -> EXCLUIR LISTA");
 
     }
+
+    static void addNewItem(String item) {
+        shoppinngList.add(item);
+    }
+
     public static void main(String[] args) {
 
         while (systemRun) {
@@ -30,11 +38,24 @@ public class Main {
             System.out.print(">>> ");
             optionMenu = userInput.nextInt();
 
+            // Verifica a escolha no MENU principal
             switch (optionMenu) {
+                // Se for 0 enncerra o programa
                 case 0:
                     System.out.println("Programa encerrado...");
                     systemRun = false;
                     break;
+
+                    // Se for 1 verifica os dados da lista e mostra no terminal
+                case 1:
+                    if (shoppinngList.isEmpty()) {
+                        System.out.println("A lista esta vázia.");
+                        break;
+
+                    } else {
+                        System.out.println(shoppinngList);
+                        break;
+                    }
             }
         }
 
