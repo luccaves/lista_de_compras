@@ -27,9 +27,20 @@ public class Main {
     }
 
     ///Métodos principais
-    //Mostrar os itens da lista
+    //Exibir os itens da lista
     static void showList() {
-        System.out.println(shoppinngList);
+
+        //checa se a lista ja existe antes de exibi-la na tela
+        if (shoppinngList.isEmpty()) {
+            System.out.println("A lista esta vázia.");
+
+        } else {
+            for (int indiceItem = 0; indiceItem < shoppinngList.size(); indiceItem++) {
+                System.out.printf("%d - ", indiceItem+1);
+                System.out.printf("%s\n",shoppinngList.get(indiceItem));
+            }
+        }
+
     }
 
     // Adicionar itens  alista
@@ -50,17 +61,10 @@ public class Main {
                 case 0:
                     System.out.println("Programa encerrado...");
                     systemRun = false;
-                    break;
 
-                    // Se for 1 verifica os dados da lista e mostra no terminal
                 case 1:
-                    //checa se a lista ja existe antes de exibi-la na tela
-                    if (shoppinngList.isEmpty()) {
-                        System.out.println("A lista esta vázia.");
+                    showList();
 
-                    } else {
-                        showList();
-                    }
             }
         }
 
