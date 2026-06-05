@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -27,6 +26,13 @@ public class Main {
 
     }
 
+    ///Métodos principais
+    //Mostrar os itens da lista
+    static void showList() {
+        System.out.println(shoppinngList);
+    }
+
+    // Adicionar itens  alista
     static void addNewItem(String item) {
         shoppinngList.add(item);
     }
@@ -48,13 +54,12 @@ public class Main {
 
                     // Se for 1 verifica os dados da lista e mostra no terminal
                 case 1:
+                    //checa se a lista ja existe antes de exibi-la na tela
                     if (shoppinngList.isEmpty()) {
                         System.out.println("A lista esta vázia.");
-                        break;
 
                     } else {
-                        System.out.println(shoppinngList);
-                        break;
+                        showList();
                     }
             }
         }
