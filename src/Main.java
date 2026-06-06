@@ -22,8 +22,8 @@ public class Main {
         System.out.println("0 -> SAIR (Encerra o programa)");
         System.out.println("1 -> EXIBIR LISTA");
         System.out.println("2 -> ADICIONAR ITEM A LISTA");
-//        System.out.println("3 -> EDITAR LISTA");
-//        System.out.println("4 -> EXCLUIR LISTA");
+        System.out.println("3 -> EDITAR LISTA");
+        //System.out.println("4 -> EXCLUIR LISTA");
 
     }
 
@@ -43,7 +43,7 @@ public class Main {
 
     }
 
-    // Adicionar itens  alista
+    // Adicionar itens  da lista
     static void addNewItem() {
         boolean goBack = false;
         while (!goBack) {
@@ -60,6 +60,32 @@ public class Main {
         }
     }
 
+    //Edita os itens da lista
+    static void editList() {
+
+        boolean goBack = false;
+        while (!goBack) {
+            showList();
+            System.out.println("Digite o numero do item que deseja editar: ");
+            int indexItem = userInput.nextInt() - 1;
+            if (indexItem < 1 || indexItem > shoppingList.size() - 1) {
+                System.out.println("Item inválido, tente novamente.");
+                break;
+            } else {
+                System.out.println("Digite o novo valor do item: ");
+
+                //limpa buffer
+                userInput.nextLine();
+
+                String newValue = userInput.nextLine();
+                shoppingList.set(indexItem, newValue);
+                goBack = true;
+            }
+            System.out.println("Segue a lista alterada...");
+            showList();
+        }
+    }
+
     //Sistema principal
     public static void main(String[] args) {
 
@@ -72,7 +98,7 @@ public class Main {
 
             // Verifica a escolha no MENU principal
             switch (optionMenu) {
-                // Se for 0 enncerra o programa
+                // Se for 0 encerra o programa
                 case 0:
                     System.out.println("Programa encerrado...");
                     systemRun = false;
@@ -83,6 +109,11 @@ public class Main {
                 case 2:
                     addNewItem();
                     break;
+                case 3:
+                    editList();
+                    break;
+                default:
+                    System.out.println("Entrada inválida, tente novamente!");
             }
         }
 
