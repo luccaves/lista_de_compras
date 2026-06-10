@@ -23,8 +23,6 @@ public class Main {
         System.out.println("1 -> EXIBIR LISTA");
         System.out.println("2 -> ADICIONAR ITEM A LISTA");
         System.out.println("3 -> EDITAR LISTA");
-        //System.out.println("4 -> EXCLUIR LISTA");
-
     }
 
     //Exibir os itens da lista
@@ -52,10 +50,12 @@ public class Main {
 
             if (item.equals("<b")) {
                 goBack = true;
+                // validação basica de verificar se o campo esta vazio
             } else if (item.isBlank()) {
                 System.out.println("Digite um valor váligo.");
             } else {
                 shoppingList.add(item);
+                System.out.format("'%s' adicionado a lista\n", item);
             }
         }
     }
@@ -68,7 +68,8 @@ public class Main {
             showList();
             System.out.println("Digite o numero do item que deseja editar: ");
             int indexItem = userInput.nextInt() - 1;
-            if (indexItem < 1 || indexItem > shoppingList.size() - 1) {
+            if (indexItem < 0 || indexItem > shoppingList.size() - 1) {
+
                 System.out.println("Item inválido, tente novamente.");
                 break;
             } else {
@@ -116,7 +117,5 @@ public class Main {
                     System.out.println("Entrada inválida, tente novamente!");
             }
         }
-
     }
-
 }
